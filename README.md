@@ -1,8 +1,12 @@
-# React + Vite
+## Home
+1. Show cover images
+    - Fetch https://shibe.online/api/shibes?count=10
+2. Show jokes
+    - Fetch https://official-joke-api.appspot.com/random_ten
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Guess Number
+1. Application random 1 number from 1-100
+2. User make a guess
+3. Application give hint, is the user provided number higher or lower than the answer
+4. Make guesses until correct
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
