@@ -1,13 +1,23 @@
 import './App.css'
-import {Navbar} from "./components/Navbar.jsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import React from "react";
+import {HomePage} from "./pages/HomePage.jsx";
+import {GuessNumberPage} from "./pages/GuessNumberPage.jsx";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomePage/>,
+  },
+  {
+    path: "/game",
+    element: <GuessNumberPage/>,
+  },
+]);
 
 function App() {
-
   return (
-    <>
-      <Navbar/>
-      <h1>Welcome to my homepage</h1>
-    </>
+    <RouterProvider router={router}/>
   )
 }
 
