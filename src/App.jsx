@@ -4,6 +4,7 @@ import React, {useState} from "react";
 import {HomePage} from "./pages/HomePage.jsx";
 import {GuessNumberPage} from "./pages/GuessNumberPage.jsx";
 import {AuthContext} from "./contexts/AuthContext.js";
+import {useAuthContext} from "./hooks/useAuth.js";
 
 const router = createBrowserRouter([
   {
@@ -17,19 +18,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [user, setUser] = useState('')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const login = (user) => {
-    setUser(user)
-    setIsLoggedIn(true)
-  }
-  const logout = () => {
-    setUser('')
-    setIsLoggedIn(false)
-  }
+  const authContextValue = useAuthContext()
 
   return (
-    <AuthContext.Provider value={{user, isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={authContextValue}>
       <RouterProvider router={router}/>
     </AuthContext.Provider>
   )
