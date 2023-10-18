@@ -1,8 +1,9 @@
 import './App.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
 import {HomePage} from "./pages/HomePage.jsx";
 import {GuessNumberPage} from "./pages/GuessNumberPage.jsx";
+import {AuthContext} from "./contexts/AuthContext.js";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,21 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const [user, setUser] = useState('')
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const login = (user) => {
+    setUser(user)
+    setIsLoggedIn(true)
+  }
+  const logout = () => {
+    setUser('')
+    setIsLoggedIn(false)
+  }
+
   return (
-    <RouterProvider router={router}/>
+    <AuthContext.Provider value={{user, isLoggedIn, login, logout }}>
+      <RouterProvider router={router}/>
+    </AuthContext.Provider>
   )
 }
 

@@ -1,10 +1,12 @@
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {v4 as uuidv4} from 'uuid';
 import {Navbar} from "../components/Navbar.jsx";
 
-// TODO: 1.useRef 2.hint history
+
 export const GuessNumberPage = () => {
   const [correctNumber, setCorrectNumber] = useState(Math.floor(Math.random() * 100) + 1)
   const [guessingNumber, setGuessingNumber] = useState('')
+  const [guessedNumbers, setGuessedNumbers] = useState([])
   const [hint, setHint] = useState('')
   console.log('correct number: ', correctNumber)
 
@@ -15,7 +17,7 @@ export const GuessNumberPage = () => {
   function guess() {
     let hint = ""
     if (guessingNumber == correctNumber) {
-      hint = "Correct!! Congratulations~~"
+      hint = "Correct!! Congratulations~~ "
     }
     if (guessingNumber < correctNumber) {
       hint = "too less"
@@ -25,11 +27,13 @@ export const GuessNumberPage = () => {
     }
 
     setHint(hint)
+    setGuessedNumbers([{id: uuidv4(), number: guessingNumber, hint}, ...guessedNumbers])
   }
 
   const reset = () => {
     setCorrectNumber(Math.floor(Math.random() * 100) + 1)
     setGuessingNumber('')
+    setGuessedNumbers([])
     setHint('')
   }
 
@@ -42,6 +46,9 @@ export const GuessNumberPage = () => {
       <button onClick={guess}>Guess</button>
       <button onClick={reset}>Reset</button>
       <h2>{hint}</h2>
+      {guessedNumbers.map((item) => (<div key={item.id}>
+        {item.number} is {item.hint}
+      </div>))}
     </div>
   )
 }
