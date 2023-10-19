@@ -3,11 +3,11 @@ import {NavLink} from "react-router-dom";
 export const Navbar = () => {
   return (
     <>
-      <div style={{display: 'flex', justifyContent: 'space-between'}}>
+      <div className={'nav-container'}>
         <div>React Hooks</div>
-        <nav id="sidebar">
+        <nav id="sidebar" className={'nav-item-container'}>
           <NavLink to="/" className={"nav-item"}>Home</NavLink>
-          <NavLink to="/game" className={"nav-item"}>Game</NavLink>
+          <NavLink to="/game">Game</NavLink>
         </nav>
       </div>
       <hr/>
