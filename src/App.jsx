@@ -3,6 +3,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import React from "react";
 import {HomePage} from "./pages/HomePage.jsx";
 import {GuessNumberPage} from "./pages/GuessNumberPage.jsx";
+import {ChallengePage} from "./pages/ChallengePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/game",
     element: <GuessNumberPage/>,
+  },
+  {
+    path: "/challenge",
+    element: <ChallengePage/>,
   },
 ]);
 
