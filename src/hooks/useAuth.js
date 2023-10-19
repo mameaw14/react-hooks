@@ -6,7 +6,6 @@ export const useAuth = () => useContext(AuthContext)
 export const useAuthContext = () => {
   const [user, setUser] = useState('')
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  console.log('create function login/logout')
   const login = (user) => {
     setUser(user)
     setIsLoggedIn(true)
