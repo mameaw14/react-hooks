@@ -8,7 +8,7 @@ export const Navbar = () => {
       <div className={'nav-container'}>
         <div>React Hooks</div>
         <nav id="sidebar" className={'nav-item-container'}>
-          <NavLink to="/" className={"nav-item"}>Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/game">Game</NavLink>
           {isLoggedIn && <div>{user}</div>}
           {isLoggedIn ? <button onClick={() => logout()}>Logout</button> :
