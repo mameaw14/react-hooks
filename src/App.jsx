@@ -5,6 +5,7 @@ import {HomePage} from "./pages/HomePage.jsx";
 import {GuessNumberPage} from "./pages/GuessNumberPage.jsx";
 import {AuthContext} from "./contexts/AuthContext.js";
 import {useAuthContext} from "./hooks/useAuth.js";
+import {ChallengePage} from "./pages/ChallengePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/game",
     element: <GuessNumberPage/>,
+  },
+  {
+    path: "/challenge",
+    element: <ChallengePage/>,
   },
 ]);
 
